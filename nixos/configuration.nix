@@ -23,14 +23,20 @@
     python314
     cargo
     nixfmt-rfc-style
+    # software development
+    docker
     # applications
     kitty
     google-chrome
   ];
 
+  virtualisation.docker.enable = true;
   # Enable nix ld
   programs.nix-ld.enable = true;
 
+  users.users.mg = {
+    extraGroups = [ "docker" ];
+  };
   # Sets up all the libraries to load
   programs.nix-ld.libraries = with pkgs; [
     # stdenv.cc.cc
