@@ -20,6 +20,13 @@ if [ -f ~/.bash_profile ]; then
     unlink ~/.bash_profile
 fi
 
+if [ -d ~/applications]; then
+    unlink ~/applications
+fi
+
+ln -rs applications ~/applications &&
+    echo "created directory ~/applications"
+
 ln -rs bash/.bash_profile ~/.bash_profile &&
     source ~/.bash_profile &&
     echo "created symlink .bash_profile"
