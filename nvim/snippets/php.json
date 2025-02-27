@@ -1,9 +1,14 @@
 {
     "TODO": {
         "prefix": [
-            "todo",
-            "to"
+            "il"
         ],
-        "body": "// TODO: $0"
+        "body": "// @phpstan-ignore-line $0"
+    },
+    "comment block": {
+        "prefix": [
+            "/**"
+        ],
+        "body": "/**\n * @var $0\n */"
     }
 }

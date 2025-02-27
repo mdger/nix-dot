@@ -18,27 +18,27 @@ return {
       },
     },
   },
-    {
-  "nvim-neo-tree/neo-tree.nvim",
-  opts = {
-    filesystem = {
-      filtered_items = {
-        visible = true,
-        show_hidden_count = true,
-        hide_dotfiles = false,
-        hide_gitignored = true,
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          show_hidden_count = true,
+          hide_dotfiles = false,
+          hide_gitignored = true,
 
-        hide_by_name = {
+          hide_by_name = {
 
-          -- '.git',
-          -- '.DS_Store',
-          -- 'thumbs.db',
+            -- '.git',
+            -- '.DS_Store',
+            -- 'thumbs.db',
+          },
+          never_show = {},
         },
-        never_show = {},
       },
     },
   },
-    },
   {
     "mfussenegger/nvim-dap",
     keys = {
@@ -71,5 +71,16 @@ return {
         desc = "Step Out",
       },
     },
+  },
+  {
+    "folke/ts-comments.nvim",
+    opts = {
+      lang = {
+        -- php = "// %s",
+        phpdoc = { "// %s" },
+      },
+    },
+    event = "VeryLazy",
+    enabled = vim.fn.has("nvim-0.10.0") == 1,
   },
 }

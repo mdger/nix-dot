@@ -1,8 +1,7 @@
 {
     "TODO": {
         "prefix": [
-            "todo",
-            "to"
+            "todo"
         ],
         "body": "// TODO: $0"
     }

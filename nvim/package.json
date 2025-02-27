@@ -1,0 +1,25 @@
+{
+    "name": "luasnip",
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "all"
+                ],
+                "path": "./snippets/all.json"
+            },
+            {
+                "language": [
+                    "lua"
+                ],
+                "path": "./lua.json"
+            },
+            {
+                "language": [
+                    "php"
+                ],
+                "path": "./snippets/php.json"
+            }
+        ]
+    }
+}
