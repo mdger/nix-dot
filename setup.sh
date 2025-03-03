@@ -10,9 +10,15 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
     echo "success: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
 fi
 
-unlink ~/.tmux.conf &&
-    ln -rs tmux/.tmux.conf ~/.tmux.conf &&
-    tmux source ~/.tmux.conf &&
+if [ -f ~/.bash_profile ]; then
+    unlink ~/.bash_profile
+fi
+
+if [ -f ~/.tmux.conf ]; then
+    unlink ~/.tmux.conf
+fi
+
+ln -rs tmux/.tmux.conf ~/.tmux.conf &&
     echo "created symlink .tmux.conf"
 
 # bash
@@ -20,7 +26,7 @@ if [ -f ~/.bash_profile ]; then
     unlink ~/.bash_profile
 fi
 
-if [ -d ~/applications]; then
+if [ -d ~/applications ]; then
     unlink ~/applications
 fi
 
@@ -30,6 +36,10 @@ ln -rs applications ~/applications &&
 ln -rs bash/.bash_profile ~/.bash_profile &&
     source ~/.bash_profile &&
     echo "created symlink .bash_profile"
+
+if [ ! -d ~/.config ]; then
+    mkdir ~/.config
+fi
 
 # neovim
 if [ -d ~/.config/nvim ]; then
@@ -41,12 +51,12 @@ ln -rs ./nvim ~/.config/nvim &&
     echo "created symlink ~/.config/nvim"
 
 # kitty
-if [ -f ~/.config/kitty/kitty.conf ]; then
-    mv ~/.config/kitty/kitty.conf{,.bak}
-    echo "created backup ~/.config/kitty/kitty.conf.bak"
-fi
+#if [ -f ~/.config/kitty/kitty.conf ]; then
+#    mv ~/.config/kitty/kitty.conf{,.bak}
+#    echo "created backup ~/.config/kitty/kitty.conf.bak"
+#fi
 
-ln -rs ./kitty/kitty.conf ~/.config/kitty/kitty.conf &&
-    echo "created symlink ~/.config/kitty/kitty.conf"
+#ln -rs ./kitty/kitty.conf ~/.config/kitty/kitty.conf &&
+#    echo "created symlink ~/.config/kitty/kitty.conf"
 
 echo "finished setup..."
